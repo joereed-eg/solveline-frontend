@@ -1,0 +1,109 @@
+/* styles/Layout.module.css */
+
+.layout {
+  display: flex;
+}
+
+.sideNavbar {
+  width: 251px;
+  background-color: #f6f6f6;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+}
+@media (max-width: 669px) {
+  .sideNavbar {
+    z-index: 99999999;
+  }
+}
+.sideNavbarHideOnDesktop {
+  transform: translateX(-100%);
+  transition: 0.5s ease-in-out;
+}
+.sideNavbarShowOnDesktop {
+  transform: translateX(0);
+  transition: 0.5s ease-in-out;
+}
+.mainContent {
+  margin: 0 0 0 auto;
+  background-color: white;
+}
+@media (max-width: 768px) {
+  .mainContent {
+    min-height: 100vh;
+  }
+}
+.main_content_desktop {
+  width: calc(100% - 251px) !important;
+  transition: 0.8s ease-in-out;
+}
+.main_content_full{
+  width: 100% !important;
+  transition: 0.8s ease-in-out;
+}
+.main_content_hideSideNave{
+  width: 100%;
+  transition: 0.8s ease-in-out;
+}
+
+.rightTopNavbar {
+  /* position: fixed; */
+  /* top: 0;
+  right: 0; */
+  background-color: #ffffff;
+  color: #fff;
+  padding: 14.5px 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
+  z-index: 3;
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .toggle_icon_navbar {
+    display: none !important;
+    background-color: red;
+  }
+
+.rightTopNavbar {
+  /* position: fixed; */
+  /* top: 0;
+  right: 0; */
+  background-color: #ffffff;
+  color: #fff;
+  padding: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
+  z-index: 3;
+  width: 100%;
+}
+}
+
+
+@media (max-width: 768px) {
+  .sideNavbarResponsive {
+   transform: translateX(-100%);
+   transition: 0.5s ease-in-out;
+  }
+  .sideNavbarResponsiveShow {
+   transform: translateX(0%);
+   transition: 0.5s ease-in-out;
+  }
+  .sideNavbarResponsiveOverlay:after{
+    content: '';
+    background-color: rgba(0, 0,0, 0.5);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    transform: translateX(100%);
+    backdrop-filter: blur(4.5px);
+  }
+  .mainContent, .rightTopNavbar  {
+    width: calc(100%) !important;
+  }
+}
