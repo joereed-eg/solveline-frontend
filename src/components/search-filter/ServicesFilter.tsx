@@ -176,33 +176,33 @@ const ServicesFilter = (props: Props) => {
  
   const groupedCities = [
       {
-          label: 'Germany',
+          name: 'Germany',
           // code: 'DE',
-          items: [
-              { label: 'Berlin', value: 'Berlin' },
-              { label: 'Frankfurt', value: 'Frankfurt' },
-              { label: 'Hamburg', value: 'Hamburg' },
-              { label: 'Munich', value: 'Munich' }
+          itemsTesting: [
+              { name: 'Berlin', value: 'Berlin' },
+              { name: 'Frankfurt', value: 'Frankfurt' },
+              { name: 'Hamburg', value: 'Hamburg' },
+              { name: 'Munich', value: 'Munich' }
           ]
       },
       {
-          label: 'USA',
+          name: 'USA',
           // code: 'US',
-          items: [
-              { label: 'Chicago', value: 'Chicago' },
-              { label: 'Los Angeles', value: 'Los Angeles' },
-              { label: 'New York', value: 'New York' },
-              { label: 'San Francisco', value: 'San Francisco' }
+          itemsTesting: [
+              { name: 'Chicago', value: 'Chicago' },
+              { name: 'Los Angeles', value: 'Los Angeles' },
+              { name: 'New York', value: 'New York' },
+              { name: 'San Francisco', value: 'San Francisco' }
           ]
       },
       {
-          label: 'Japan',
+          name: 'Japan',
           // code: 'JP',
-          items: [
-              { label: 'Kyoto', value: 'Kyoto' },
-              { label: 'Osaka', value: 'Osaka' },
-              { label: 'Tokyo', value: 'Tokyo' },
-              { label: 'Yokohama', value: 'Yokohama' }
+          itemsTesting: [
+              { name: 'Kyoto', value: 'Kyoto' },
+              { name: 'Osaka', value: 'Osaka' },
+              { name: 'Tokyo', value: 'Tokyo' },
+              { name: 'Yokohama', value: 'Yokohama' }
           ]
       }
   ];
@@ -211,7 +211,7 @@ const ServicesFilter = (props: Props) => {
   const groupedItemTemplate = (option: any) => {
       return (
           <div className="flex align-items-center">
-               <div>{option.label}</div>
+               <div>{option.name}</div>
           </div>
       );
   };
@@ -267,8 +267,8 @@ const ServicesFilter = (props: Props) => {
             maxSelectedLabels={0}
             className="border w-full rounded-[8px]"
           /> */}
-          <MultiSelect value={selectedCategory} options={groupedCities} onChange={(e) => setSelectedCategory(e.value)} optionLabel="label"
-            optionGroupLabel="label" optionGroupChildren="items" optionGroupTemplate={groupedItemTemplate}
+          <MultiSelect value={selectedCategory} options={groupedCities} onChange={(e) => setSelectedCategory(e.value)} optionLabel="name"
+            optionGroupLabel="name" optionGroupChildren="itemsTesting" optionGroupTemplate={groupedItemTemplate}
             placeholder="Select Cities" maxSelectedLabels={0} className="border w-full rounded-[8px]" />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 py-2 md:pe-2 rating-dropdown">

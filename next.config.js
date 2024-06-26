@@ -2,7 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['exponentappbe.scaleupally.io', 'expoappbe.scaleupally.io', 'getstream.io', 'local.exponent.com', 'staging.manage.exponent.scaleupdevops.in','example.com', 'https://expoappbe.scaleupally.io', 'manage.exponentgroup.org'],
+    domains: [
+      'exponentappbe.scaleupally.io',
+      'expoappbe.scaleupally.io',
+      'getstream.io',
+      'local.exponent.com',
+      'staging.manage.exponent.scaleupdevops.in',
+      'example.com',
+      'expoappbe.scaleupally.io',
+      'manage.exponentgroup.org',
+      'dev.manage.solveline.scaleupdevops.in'
+    ],
   },
 }
 

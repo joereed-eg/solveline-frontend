@@ -10,10 +10,9 @@ if (typeof window !== "undefined") {
 
 // initialize axios
 export const api = axios.create({
-  baseURL: `https://expoappbe.scaleupally.io/api/`,
-  // baseURL: `http://192.168.29.207:8000/api/`,
+  // baseURL: `https://expoappbe.scaleupally.io/api/`,
+  baseURL: `https://dev.manage.solveline.scaleupdevops.in/api/`,
   // baseURL: `https://manage.exponentgroup.org/api/`, 
-  
   // baseURL: `https://staging.manage.exponent.scaleupdevops.in/api/`,
    
   headers: {
