@@ -91,7 +91,7 @@ const ForgotPasswordVerifyEmail = (props: Props) => {
                 <div className="relative w-full  w-custom-536 md:w-1/2 p-8">
                     <div className='flex justify-between items-center'>
                         <Link href={"/"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={103} height={59} />
+                            <Image src={"/images/logo.png"} alt="login img" width={120} height={59} />
                         </Link>
                     </div>
                     <div className='login-form-height items-center md:mx-6 sign-form flex'>
@@ -130,7 +130,7 @@ const ForgotPasswordVerifyEmail = (props: Props) => {
                                                         {...props}
                                                         style={{
                                                             ...props.style,
-                                                            borderColor: formikProps.values.otp[index] ? "#CB333B" : "#E0E0E0",
+                                                            borderColor: formikProps.values.otp[index] ? "#FF5402" : "#E0E0E0",
                                                         }}
                                                         onKeyPress={(e) => {
                                                             // Allow only numerical digits
@@ -157,7 +157,7 @@ const ForgotPasswordVerifyEmail = (props: Props) => {
                                                         }}
 
                                                     />
-                                                    <span className='absolute end-0 bottom-[-25px] text-[#CB333B] cursor-pointer' onClick={() => resendOtpHandler()}>
+                                                    <span className='absolute end-0 bottom-[-25px] text-[#FF5402] cursor-pointer' onClick={() => resendOtpHandler()}>
                                                         {isClicked ?
                                                             <p>00:{formatTimer(timer)}</p>
                                                             :

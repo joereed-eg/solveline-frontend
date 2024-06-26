@@ -79,7 +79,7 @@ export default function CheckAvailability({ availabilityDataList, providerProfil
                         <div>
                             <h3 className='title_text_expo pb-3 font-[600]'>Courses</h3>
                         </div>
-                        <div className='border-[#E8E8E8] hover:border-[#CB333B] border-[1px] hover:border-[2px] h-[84px] flex items-center md:p-4 p-2 rounded-[10px] justify-between mb-3'>
+                        <div className='border-[#E8E8E8] hover:border-[#FF5402] border-[1px] hover:border-[2px] h-[84px] flex items-center md:p-4 p-2 rounded-[10px] justify-between mb-3'>
                             <div>
                                 <p className='font-medium'>Invigorating Yoga & Mindfulness Meditation Class</p>
                                 <p className='flex items-center'><span><Image src={'/images/icons/watch.svg'} width={13} height={13} alt='watch icon' /> </span> <span className='text-[#666666] text-[14px] ps-2'>1h 30m</span></p>
@@ -88,7 +88,7 @@ export default function CheckAvailability({ availabilityDataList, providerProfil
                                 <p className='text-[#000000] font-bold pb-4'>$80 <span className='text-[#B2B2B2] text-[12px] font-light'>/session</span></p>
                             </div>
                         </div>
-                        <div className='border-[#E8E8E8] hover:border-[#CB333B] border-[1px] hover:border-[2px] h-[84px] flex items-center md:p-4 p-2 rounded-[10px] justify-between mb-3'>
+                        <div className='border-[#E8E8E8] hover:border-[#FF5402] border-[1px] hover:border-[2px] h-[84px] flex items-center md:p-4 p-2 rounded-[10px] justify-between mb-3'>
                             <div>
                                 <p className='font-medium'>Invigorating Yoga & Mindfulness Meditation Class</p>
                                 <p className='flex items-center'><span><Image src={'/images/icons/watch.svg'} width={13} height={13} alt='watch icon' /> </span> <span className='text-[#666666] text-[14px] ps-2'>1h 30m</span></p>
@@ -105,25 +105,25 @@ export default function CheckAvailability({ availabilityDataList, providerProfil
 
                                 <div className='flex flex-wrap gap-4 pt-8'>
 
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['monday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'monday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('monday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['monday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'monday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('monday')}>
                                         M
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['tuesday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'tuesday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('tuesday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['tuesday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'tuesday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('tuesday')}>
                                         T
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['wednesday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'wednesday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('wednesday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['wednesday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'wednesday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('wednesday')}>
                                         W
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['thursday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'thursday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('thursday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['thursday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'thursday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('thursday')}>
                                         T
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['friday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'friday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('friday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['friday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'friday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('friday')}>
                                         F
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['saturday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'saturday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('saturday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['saturday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'saturday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('saturday')}>
                                         S
                                     </div>
-                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#CB333B] ${!availabilityDataList['sunday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'sunday' ? 'border-[#CB333B]' : ''}`} onClick={() => handleDayClick('sunday')}>
+                                    <div className={`w-[30px] h-[30px]  bg-[#FFFFFF] border-[1px] flex justify-center items-center rounded-full shadow cursor-pointer hover:border-[#FF5402] ${!availabilityDataList['sunday'] && 'opacity-30 pointer-events-none'}  ${selectedDay === 'sunday' ? 'border-[#FF5402]' : ''}`} onClick={() => handleDayClick('sunday')}>
                                         S
                                     </div>
 

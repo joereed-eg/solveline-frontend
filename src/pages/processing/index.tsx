@@ -52,7 +52,7 @@ const Processing = () => {
                                     <IoMdCheckmark size={100} color='#039855' />
                                     :
 
-                                    <IoMdClose size={100} color='#CB333B' />
+                                    <IoMdClose size={100} color='#FF5402' />
                                 }
                             </>
                         }
@@ -80,7 +80,7 @@ const Processing = () => {
                                 </>
                                 :
                                 <>
-                                    <h1 className='text-[30px] text-[#CB333B]'>Payment error</h1>
+                                    <h1 className='text-[30px] text-[#FF5402]'>Payment error</h1>
                                     <div className='flex pt-3'>
                                         <Link href={`/`} className='btn btn-light btn-light-shadow mx-2'>Home</Link>
                                         {statusAddFund ?

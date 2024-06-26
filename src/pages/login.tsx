@@ -60,14 +60,14 @@ const Login = (props: Props) => {
         <>
         {googleLogin && 
          <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-         <PulseLoader color='#CB333B' />
+         <PulseLoader color='#FF5402' />
        </div>
         }
             <div className="relative flex flex-wrap  bg-white">
                 <div className="relative w-full w-custom-536 md:w-1/2 p-8 md:overflow-hidden">
                     <div className='flex justify-between items-center'>
                         <Link href={"/"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={103} height={59} />
+                            <Image src={"/images/logo.png"} alt="login img" width={120} height={59} />
                         </Link>
                         {/* <div>
                             <Link href={"/"} className='text-[14px] flex'>
@@ -79,7 +79,7 @@ const Login = (props: Props) => {
                     <div className='login-form-height items-center md:mx-6 sign-form flex md:pt-10'>
 
                         <div className='w-full md:pt-2 pb-4 small-view'>
-                            <h1 className='title'>Welcome back to Exponent Group!</h1>
+                            <h1 className='title'>Welcome back to Solveline Group!</h1>
                             <p className='sub_title font-[400]'>Log in to explore a world of guidance and support.</p>
 
                             <div className='md:pt-8 pt-4'>
@@ -154,7 +154,7 @@ const Login = (props: Props) => {
                                             <ErrorMessage name="password" component="div" className="text-red-500 text-[13px]" />
                                         </div>
                                         <div className="flex items-center justify-end pb-5">
-                                            <Link href="/forgot-password" className="text-sm font-medium text-[#CB333B] hover:underline ">Forgot password?</Link>
+                                            <Link href="/forgot-password" className="text-sm font-medium text-[#FF5402] hover:underline ">Forgot password?</Link>
                                         </div>
                                         <div className="mt-3">
                                             <button

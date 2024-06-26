@@ -197,7 +197,7 @@ const FundManagementTable = (props: Props) => {
                                                             }}
                                                             onMouseEnter={() => { setShowTooltipWallet(true); setShowTooltipButtonId(row.original.id); }}
                                                             onMouseLeave={() => { setShowTooltipWallet(false); setShowTooltipButtonId(null) }}>
-                                                            <TbReceiptRefund size={40} color='#CB333B' />
+                                                            <TbReceiptRefund size={40} color='#FF5402' />
                                                         </button>
                                                         {showTooltipButtonId === row.original.id && showTooltip &&
                                                             <div className="absolute z-10 left-[-75px] top-[10%] w-[64px] h-[36px] bottom-full bg-[#101828] text-white px-2 rounded-[4px]  text-wrap text-[14px] font-medium">

@@ -133,7 +133,7 @@ export default function Profile({ providerProfileDetails }: ProviderServiceDetai
                         disabled={createChannelLoading}
                         className='w-full btn btn-light btn-light-shadow' onClick={() => createChannelHandler(providerProfileDetails?.id)}
                       >
-                        {createChannelLoading ? <PulseLoader color="#CB333B" /> : "Contact"}
+                        {createChannelLoading ? <PulseLoader color="#FF5402" /> : "Contact"}
                       </button>
                     </>
                   }
@@ -204,7 +204,7 @@ export default function Profile({ providerProfileDetails }: ProviderServiceDetai
 
                     {ratingList?.meta_params.hasMorePage &&
                       <div className='text-center'><button disabled={ratingListLoader} className='btn btn-light btn-light-shadow' onClick={() => setMoreReviewsPageCount(moreReviewsPageCount + 1)}>
-                        {ratingListLoader ? <PulseLoader color="#CB333B" /> : "See more"}
+                        {ratingListLoader ? <PulseLoader color="#FF5402" /> : "See more"}
                       </button></div>
                     }
                   </div>

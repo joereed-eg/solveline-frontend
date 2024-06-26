@@ -176,7 +176,7 @@ const Profile = (props: Props) => {
                                     <div>
                                         {editProfileLoader ?
                                             <>
-                                                <FadeLoader color="#CB333B" />
+                                                <FadeLoader color="#FF5402" />
                                             </>
                                             :
                                             <>

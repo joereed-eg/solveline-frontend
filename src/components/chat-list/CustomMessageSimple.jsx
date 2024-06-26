@@ -283,7 +283,7 @@ const router = useRouter()
                             >
                               {acceptQuotationLoader &&
                               quotationId == message?.quotation?.id ? (
-                                <PulseLoader size={10} color="#CB333B" />
+                                <PulseLoader size={10} color="#FF5402" />
                               ) : (
                                 // " "
                                 `Accept`

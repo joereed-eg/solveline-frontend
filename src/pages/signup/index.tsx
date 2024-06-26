@@ -85,14 +85,14 @@ const SignUp = (props: Props) => {
         <>
             {googleLogin &&
                 <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-                    <PulseLoader color='#CB333B' />
+                    <PulseLoader color='#FF5402' />
                 </div>
             }
             <div className="relative flex flex-wrap  bg-white ">
                 <div className={`relative w-full w-custom-536 md:w-1/2 p-8 md:overflow-hidden items-center md:h-100 `}>
                     <div className='flex justify-between items-center'>
                         <Link href={"/login"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={103} height={59} />
+                            <Image src={"/images/logo.png"} alt="login img" width={120} height={59} />
                         </Link>
 
                     </div>

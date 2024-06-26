@@ -256,7 +256,7 @@ const AppointmentTable = (props: Props) => {
                             {appointmentListLoader &&
 
                                 <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-                                    <PulseLoader color='#CB333B' />
+                                    <PulseLoader color='#FF5402' />
                                 </div>
                             }
 
@@ -385,7 +385,7 @@ const AppointmentTable = (props: Props) => {
                 >
                     {viewAppontmentLoader ?
                         <div className='flex justify-center items-center py-20'>
-                            <PulseLoader color='#CB333B' />
+                            <PulseLoader color='#FF5402' />
                         </div>
                         :
                         <div className='pb-3 pt-2 px-5'>
@@ -615,7 +615,7 @@ const AppointmentTable = (props: Props) => {
                 >
                     {viewAppontmentLoader ?
                         <div className='flex justify-center items-center py-20'>
-                            <PulseLoader color='#CB333B' />
+                            <PulseLoader color='#FF5402' />
                         </div>
                         :
                         <div className='pb-3 pt-5 px-5'>

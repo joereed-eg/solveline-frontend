@@ -52,7 +52,7 @@ const PaymentHistory = () => {
                 {walletLedgerHistoryLoader && walletLedgerHistoryData?.length === 0 &&
 
                     <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-                        <PulseLoader color='#CB333B' />
+                        <PulseLoader color='#FF5402' />
                     </div>
                 }
                 {walletLedgerHistoryData?.length > 0 &&

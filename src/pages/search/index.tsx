@@ -41,6 +41,8 @@ const Search = (props: Props) => {
   const [pageRequested, setPageRequested] = useState(0);
   const [appointmentParams, setAppointmentParams] = useState(initialServiceParams);
   const [scrollValue, setScrollValue] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
 
   const [selectedRatingOptionsItems, setSelectedRatingOptionsItems] = useState([]);
   const [priceRangeHandler, setPriceRangeHandler] = useState<number | [number, number]>([0, 1000]);
@@ -147,6 +149,8 @@ const Search = (props: Props) => {
             setPriceRangeHandler={setPriceRangeHandler}
             setSelecteSpecialization={setSelecteSpecialization}
             selecteSpecialization={selecteSpecialization}
+            setSelectedCategory={setSelectedCategory}
+            selectedCategory={selectedCategory}
           />
         </div>
 
@@ -168,7 +172,7 @@ const Search = (props: Props) => {
           </h1>
           {isLoading &&
             <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-              <PulseLoader color='#CB333B' />
+              <PulseLoader color='#FF5402' />
             </div>
           }
           <>

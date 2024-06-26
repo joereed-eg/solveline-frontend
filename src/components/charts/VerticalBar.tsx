@@ -99,7 +99,7 @@ export default function VerticalBarDemo() {
                 },
                 {
                     label: 'Deactivated Employees',
-                    backgroundColor: "#CB333B",
+                    backgroundColor: "#FF5402",
                     borderColor: documentStyle.getPropertyValue('--blue-500'),
                     data: [10, 5, 3, 1, 3, 6, 10]
                 },

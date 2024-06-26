@@ -118,7 +118,7 @@ const CopmanyWalletHistoryTable = (props: Props) => {
                                 {walletLedgerHistoryLoader &&
 
                                     <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-                                        <PulseLoader color='#CB333B' />
+                                        <PulseLoader color='#FF5402' />
                                     </div>
                                 }
                                 {rows.map((row: Row<IWalletLedger>, index: number) => {
@@ -143,7 +143,7 @@ const CopmanyWalletHistoryTable = (props: Props) => {
                                                     </td>
                                                 <td className='text-nowrap min-w-[250px] max-w-[250px]'>
                                                     <div className='flex items-center'>
-                                                        <span className={`px-2 text-[14px] font-medium rounded-md  ${row.original.type === "credit" ? "text-[#008000]  bg-[#0080001A]" : "text-[#CB333B] bg-[#CB333B1A]"}`}>
+                                                        <span className={`px-2 text-[14px] font-medium rounded-md  ${row.original.type === "credit" ? "text-[#008000]  bg-[#0080001A]" : "text-[#FF5402] bg-[#FF54021A]"}`}>
                                                             {row.original.amount}
                                                         </span>
                                                     </div>
@@ -173,7 +173,7 @@ const CopmanyWalletHistoryTable = (props: Props) => {
                                                             <Image src={'/images/icons/invoice-download.svg'} alt='table_img' width={20} height={20} />
                                                         </div>
                                                         <span className='ps-2 text-[14px] font-medium text-black '>
-                                                            {invoiceDownloadLoading && invoiceId === row?.original?.id ? <div className='flex items-end'>Downloading<PulseLoader color='#CB333B' size={4} /></div> : "  Download invoice"}
+                                                            {invoiceDownloadLoading && invoiceId === row?.original?.id ? <div className='flex items-end'>Downloading<PulseLoader color='#FF5402' size={4} /></div> : "  Download invoice"}
                                                         </span>
                                                     </div>
                                                 </td> */}

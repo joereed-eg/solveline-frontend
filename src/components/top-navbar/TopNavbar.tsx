@@ -42,7 +42,7 @@ const TopNavbar = (props: Props) => {
                         {!userProfile?.isAuth && (
                             <div className='py-2'>
                                 <Link href={'/'}>
-                                    <Image src={"/images/logo.png"} width={103} height={59} alt="Logo" />
+                                    <Image src={"/images/logo.png"} width={120} height={59} alt="Logo" />
                                 </Link>
                             </div>
                         )}
@@ -66,7 +66,7 @@ const TopNavbar = (props: Props) => {
                                 {isSidebarVisible ?
                                     <RiMenu5Line color="#282C32" size={30} />
                                     :
-                                    <IoCloseSharp color="#CB333B" size={30} />
+                                    <IoCloseSharp color="#FF5402" size={30} />
                                 }
                             </button>
                         )}

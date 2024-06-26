@@ -1,4 +1,4 @@
-$danger-color: #CB333B;
+$danger-color: #FF5402;
 $border_light_color: #E8E8E8;
 
 
@@ -73,7 +73,7 @@ input[type="number"] {
     svg {
         display: inline !important;
         margin-left: 4px;
-        fill: #CB333B;
+        fill: #FF5402;
         width: 18px;
         height: 18px;
         cursor: pointer;
@@ -1398,7 +1398,7 @@ textarea {
             &>span {
                 &.p-highlight {
                     color: #ffffff;
-                    background: #CB333B !important;
+                    background: #FF5402 !important;
                 }
             }
         }
@@ -1803,7 +1803,7 @@ td {
     height: 29px !important;
 
     path {
-        fill: #CB333B !important;
+        fill: #FF5402 !important;
 
     }
 }

@@ -111,7 +111,7 @@ const AppointmentsFilter = (props: Props) => {
             <div className='absolute top-2 right-3 bg-white'>
               {searchQuery?.length > 0 ?
                 <div onClick={() => setSearchQuery('')} className='cursor-pointer'>
-                  <IoMdClose size={25} color='#CB333B' />
+                  <IoMdClose size={25} color='#FF5402' />
                 </div>
                 :
                 <IoSearchOutline size={25} />
@@ -133,7 +133,7 @@ const AppointmentsFilter = (props: Props) => {
             icon={
               dates && dates.length > 0 ? (
                 <BiX
-                  color='#CB333B'
+                  color='#FF5402'
                   size={25}
                   className='close_icon_filter'
                   onClick={handleClear}

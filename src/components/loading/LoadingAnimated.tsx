@@ -5,7 +5,7 @@ const LoadingAnimated = () => {
     return (
         <section className='loader_background' >
             <div  className='loader_center'>
-              <DotLoader color="#CB333B" />
+              <DotLoader color="#FF5402" />
             </div>
         </section>
     );

@@ -170,7 +170,7 @@ const FundManagement = (props: Props) => {
       <ChatTopBar title="Fund Management" />
       {(addFundLoader || emptyWalletAmountLoader) &&
         <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-          <PulseLoader color='#CB333B' />
+          <PulseLoader color='#FF5402' />
         </div>
       }
       <div className='md:flex justify-between px-5 items-end  border-t pt-5'>
@@ -332,7 +332,7 @@ const FundManagement = (props: Props) => {
       <CenterModal setVisible={setFunNotAvailable} visible={funNotAvailable} title='Insufficient Balance'>
         <div className='px-5 pt-5 pb-4 text-center'>
           <div className='flex justify-center text-center w-100 pb-3'>
-            <BsExclamationTriangleFill size={50} color='#CB333B' />
+            <BsExclamationTriangleFill size={50} color='#FF5402' />
           </div>
           <div className='flex items-center '>
             <p className='ps-3 text-[18px] text-black font-medium text-center'>Total distributed funds exceed the available balance. Please add more funds.

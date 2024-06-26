@@ -74,7 +74,7 @@ const SearchModal = (props: Props) => {
       <div className='absolute top-2 right-4 bg-white'>
         {searchQuery?.length > 0 ?
           <div onClick={() => setSearchQuery('')} className='cursor-pointer'>
-            <IoMdClose size={25} color='#CB333B' />
+            <IoMdClose size={25} color='#FF5402' />
           </div>
           :
           <IoSearchOutline size={25} />

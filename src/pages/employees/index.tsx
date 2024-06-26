@@ -52,7 +52,7 @@ const Employees = (props: Props) => {
         <>
           {employeeListLoader &&
             <div className='absolute items-center h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-              <PulseLoader color='#CB333B' />
+              <PulseLoader color='#FF5402' />
             </div>
           }
           <>

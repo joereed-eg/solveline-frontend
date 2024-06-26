@@ -36,7 +36,7 @@ const NewPassword = (props: Props) => {
                 <div className="relative w-full  w-custom-536 md:w-1/2 p-8">
                     <div className='flex justify-between items-center'>
                         <Link href={"/"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={103} height={59} />
+                            <Image src={"/images/logo.png"} alt="login img" width={120} height={59} />
                         </Link>
 
                     </div>

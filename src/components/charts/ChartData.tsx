@@ -46,7 +46,7 @@ export default function LineDemo() {
                     label: 'Total Available amount.',
                     data: [10, 10, 15, 9, 19, 17, 10],
                     fill: false,
-                    borderColor: "#CB333B",
+                    borderColor: "#FF5402",
                     tension: 0.4
                 }
             ]

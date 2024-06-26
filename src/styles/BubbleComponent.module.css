@@ -46,8 +46,8 @@
   height: 10px;
   z-index: 9999999;
   border-radius: 50%;
-  background: #CB333B;
-  box-shadow: 0 0 100px #CB333B,;
+  background: #FF5402;
+  box-shadow: 0 0 100px #FF5402,;
   animation: animate 1s linear infinite;
   animation-delay: calc(0.1s * var(--i));
 }

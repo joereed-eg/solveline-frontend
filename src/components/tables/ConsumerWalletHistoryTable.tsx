@@ -114,7 +114,7 @@ const ConsumerWalletHistoryTable = (props: Props) => {
                                 {walletHistoryLoader &&
 
                                     <div className='absolute items-center py-20 h-[100%] top-0 w-full left-0 bottom-0 z-10 overlay_loader'>
-                                        <PulseLoader color='#CB333B' />
+                                        <PulseLoader color='#FF5402' />
                                     </div>
                                 }
                                 {rows.map((row: Row<IWalletHistory>, index: number) => {
@@ -159,7 +159,7 @@ const ConsumerWalletHistoryTable = (props: Props) => {
                                                 </td>
                                                 <td className='text-nowrap min-w-[250px] max-w-[250px]'>
                                                     <div className='flex items-center'>
-                                                        <span className={`px-2 text-[14px] font-medium rounded-md  ${row.original.type === "credit" ? "text-[#008000]  bg-[#0080001A]" : "text-[#CB333B] bg-[#CB333B1A]"}`}>
+                                                        <span className={`px-2 text-[14px] font-medium rounded-md  ${row.original.type === "credit" ? "text-[#008000]  bg-[#0080001A]" : "text-[#FF5402] bg-[#FF54021A]"}`}>
                                                             {row.original.amount}
                                                         </span>
                                                     </div>

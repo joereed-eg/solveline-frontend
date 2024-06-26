@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <PersistGate loading={null} persistor={store.persistor}>
             <AuthGuard>
             <Head>
-              <title>Exponent</title>
+              <title>Solveline</title>
               <link rel="icon" href="/images/logo_icon.png" />
             </Head>
             <Component {...pageProps} />

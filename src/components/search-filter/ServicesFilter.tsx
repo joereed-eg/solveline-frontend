@@ -32,6 +32,8 @@ type Props = {
   setPriceRangeHandler: any;
   setSelecteSpecialization: any;
   selecteSpecialization: any;
+  selectedCategory: any;
+  setSelectedCategory: any;
 };
 
 const ServicesFilter = (props: Props) => {
@@ -42,7 +44,7 @@ const ServicesFilter = (props: Props) => {
   const searchHistory = useSelector((state: AppState) => state.userData.searchHistory)
 
   const { searchQuery, setSearchQuery, setDateTime12h, datetime12h, selectedRatingOptionsItems, setSelectedRatingOptionsItems,
-     priceRangeHandler, setPriceRangeHandler, setSelecteSpecialization, selecteSpecialization } = props
+    priceRangeHandler, setPriceRangeHandler, setSelecteSpecialization, selecteSpecialization , setSelectedCategory, selectedCategory} = props
 
   const [priceRange, setPriceRange] = useState<number | [number, number]>([0, 1000]);
 
@@ -171,6 +173,49 @@ const ServicesFilter = (props: Props) => {
     setSearchQuery(searchValue);
     op.current?.hide(); // Hide OverlayPanel
   };
+ 
+  const groupedCities = [
+      {
+          label: 'Germany',
+          // code: 'DE',
+          items: [
+              { label: 'Berlin', value: 'Berlin' },
+              { label: 'Frankfurt', value: 'Frankfurt' },
+              { label: 'Hamburg', value: 'Hamburg' },
+              { label: 'Munich', value: 'Munich' }
+          ]
+      },
+      {
+          label: 'USA',
+          // code: 'US',
+          items: [
+              { label: 'Chicago', value: 'Chicago' },
+              { label: 'Los Angeles', value: 'Los Angeles' },
+              { label: 'New York', value: 'New York' },
+              { label: 'San Francisco', value: 'San Francisco' }
+          ]
+      },
+      {
+          label: 'Japan',
+          // code: 'JP',
+          items: [
+              { label: 'Kyoto', value: 'Kyoto' },
+              { label: 'Osaka', value: 'Osaka' },
+              { label: 'Tokyo', value: 'Tokyo' },
+              { label: 'Yokohama', value: 'Yokohama' }
+          ]
+      }
+  ];
+  console.log(selectedCategory, "selectedCategory");
+  
+  const groupedItemTemplate = (option: any) => {
+      return (
+          <div className="flex align-items-center">
+               <div>{option.label}</div>
+          </div>
+      );
+  };
+
 
   return (
     <div className=''>
@@ -182,7 +227,7 @@ const ServicesFilter = (props: Props) => {
             placeholder='Search...'
             className='border w-full p-2 rounded-[8px]'
             value={searchQuery}
-           />
+          />
           <OverlayPanel ref={op}>
             <div className='mb-2'>
               <label htmlFor="searchName" className='text-[12px] font-medium text-black'>Search name</label>
@@ -211,7 +256,7 @@ const ServicesFilter = (props: Props) => {
 
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 py-2 md:pe-2">
-          <MultiSelect
+          {/* <MultiSelect
             value={selecteSpecialization}
             onChange={(e) => setSelecteSpecialization(e.value)}
             options={specializationOptions}
@@ -221,7 +266,10 @@ const ServicesFilter = (props: Props) => {
             showSelectAll={false}
             maxSelectedLabels={0}
             className="border w-full rounded-[8px]"
-          />
+          /> */}
+          <MultiSelect value={selectedCategory} options={groupedCities} onChange={(e) => setSelectedCategory(e.value)} optionLabel="label"
+            optionGroupLabel="label" optionGroupChildren="items" optionGroupTemplate={groupedItemTemplate}
+            placeholder="Select Cities" maxSelectedLabels={0} className="border w-full rounded-[8px]" />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 py-2 md:pe-2 rating-dropdown">
           <MultiSelect
@@ -268,7 +316,7 @@ const ServicesFilter = (props: Props) => {
                       <button className='btn btn-danger w-full mt-3' onClick={() => priceRangeApply()}>Apply</button>
                     </div>
                     <div className='absolute right-2 top-2' onClick={() => setIsOpen(false)}>
-                      <IoCloseSharp color="#CB333B" size={25} />
+                      <IoCloseSharp color="#FF5402" size={25} />
                     </div>
                   </div>
                 </div>
