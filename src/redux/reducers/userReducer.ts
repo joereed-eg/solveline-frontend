@@ -3,6 +3,7 @@ import { UserActionTypes, UserActions } from "../action-types/userActionTypes";
 
 const initialState: IUser = {
   countryList: [],
+  categoryList:[],
   userEmail: "",
   sendOtpLoader: false,
   verifyEmailLoader: false,
@@ -91,6 +92,12 @@ export default function userReducer(
       return {
         ...state,
         countryList: action.payload,
+      };
+    }
+    case UserActions.SET_CATEGORY_LIST: {
+      return {
+        ...state,
+        categoryList: action.payload,
       };
     }
     case UserActions.VERIFY_EMAIL_LOADER: {

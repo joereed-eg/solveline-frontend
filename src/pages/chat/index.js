@@ -37,7 +37,8 @@ const UserChat = () => {
   const userData = useSelector((state) => state.userData?.userProfile);
 
   const userUUId = `${userData?.uuid}`;
-  const apiKey = "jkeah38xwfvs";
+  const apiKey = "hcg9ukn84xfs";
+  
   const userToken = userData?.chat_token;
 
   //  const providerChatId = router?.asPath

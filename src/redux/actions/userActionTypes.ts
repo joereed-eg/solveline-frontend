@@ -1,4 +1,4 @@
-import { ICountry, IForgotPassword, IFormErrors, IGoogleLogin, IPaymentHistoryData, IPaymentHistoryMetaParams, IPaymentHistoryPayload, IResendOtp, IServicesFilter, IUserLogin, IUserProfile, IUserSignup, IVerifyEmail, IWalletHistory } from "@/types/userInterface";
+import { ICategory, ICountry, IForgotPassword, IFormErrors, IGoogleLogin, IPaymentHistoryData, IPaymentHistoryMetaParams, IPaymentHistoryPayload, IResendOtp, IServicesFilter, IUserLogin, IUserProfile, IUserSignup, IVerifyEmail, IWalletHistory } from "@/types/userInterface";
 import { UserActionTypes, UserActions } from "../action-types/userActionTypes";
 import { IProviderService, ISetSearchHistory, IservicesMetaParams } from "@/types/providerServicesInterface";
 
@@ -62,6 +62,14 @@ export const getCountryList = (): UserActionTypes => ({
     
 export const setCountryList = (payload:ICountry[]): UserActionTypes => ({
     type: UserActions.SET_COUNTRY_LIST,
+    payload
+})
+export const getCategoryList = (): UserActionTypes => ({
+    type: UserActions.GET_CATEGORY_LIST,
+})
+    
+export const setCategoryList = (payload:ICategory[]): UserActionTypes => ({
+    type: UserActions.SET_CATEGORY_LIST,
     payload
 })
     

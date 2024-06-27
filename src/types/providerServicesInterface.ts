@@ -32,7 +32,7 @@ export interface IservicesMetaParams {
 
 export interface ISetSearchHistory {
   name: string | null;
-  specialization: null | string[];
+  category: null | string[];
   ratings: null | string[];
   availability: string[];
   start_price: string;

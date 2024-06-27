@@ -1,9 +1,9 @@
 import { call, delay, put, takeLatest } from 'redux-saga/effects';
-import { addProfileImageApi, deleteProfileImageApi, downloadInvoiceApi, forgotPasswordStageOneApi, forgotPasswordStageThreeApi, forgotPasswordStageTwoApi, getCountryListApi, getPaymentHistoryApi, getProfileApi, getSearchServicesFilteApi, getWalletHistoryApi, resendOtpApi, userGoogleLoginApi, userLoginApi, userLogoutApi, userProfileApi, userSignupApi, verifyEmailApi } from '../requests/userHandlerRequest';
+import { addProfileImageApi, deleteProfileImageApi, downloadInvoiceApi, forgotPasswordStageOneApi, forgotPasswordStageThreeApi, forgotPasswordStageTwoApi, getCategoryListApi, getCountryListApi, getPaymentHistoryApi, getProfileApi, getSearchServicesFilteApi, getWalletHistoryApi, resendOtpApi, userGoogleLoginApi, userLoginApi, userLogoutApi, userProfileApi, userSignupApi, verifyEmailApi } from '../requests/userHandlerRequest';
 import { UserActionTypes, UserActions } from '@/redux/action-types/userActionTypes';
 import { toast } from 'react-toastify';
 import router from 'next/router';
-import { downloadInvoiceLoading, editProfileImageLoader, googleLoginLoading, sendOtp, sendOtpLoader, setConsumerWalletHistory, setConsumerWalletHistoryMetaParams, setConsumerWalletLoader, setCountryList, setFormErrors, setPaymentHistory, setPaymentHistoryMetaParams, setSearchHistory, setServicesFilter, setServicesFilterLoader, setServicesMetaParams, setUserEmail, setUserForgotPasswordVerifyToken, setUserProfile, userSignupLoding, verifyEmailLoader } from '@/redux/actions/userActionTypes';
+import { downloadInvoiceLoading, editProfileImageLoader, googleLoginLoading, sendOtp, sendOtpLoader, setCategoryList, setConsumerWalletHistory, setConsumerWalletHistoryMetaParams, setConsumerWalletLoader, setCountryList, setFormErrors, setPaymentHistory, setPaymentHistoryMetaParams, setSearchHistory, setServicesFilter, setServicesFilterLoader, setServicesMetaParams, setUserEmail, setUserForgotPasswordVerifyToken, setUserProfile, userSignupLoding, verifyEmailLoader } from '@/redux/actions/userActionTypes';
 import { IResendOtp, IUserProfile } from '@/types/userInterface';
 import { api } from '@/api-config/api';
 import { appointmentListLoader } from '@/redux/actions/appointmentActions';
@@ -212,6 +212,20 @@ function* getCountryListHandler() {
         const { data } = yield call(getCountryListApi);
         if (data.status) {
             yield put(setCountryList(data?.data));
+        } else {
+
+        }
+    } catch (error: any) {
+        // alert("Sorry. We encountered an error. Please try again.");
+    } finally {
+        // yield put(setLearnMoreLoader(false));
+    }
+}
+function* getCategoryListHandler() {
+    try {
+        const { data } = yield call(getCategoryListApi);
+        if (data.status) {
+            yield put(setCategoryList(data?.data));
         } else {
 
         }
@@ -689,6 +703,7 @@ function* userLogoutdHandler() {
 export default function* userSaga() {
     yield takeLatest(UserActions.USER_SIGNUP, userSignupHandler);
     yield takeLatest(UserActions.GET_COUNTRY_LIST, getCountryListHandler);
+    yield takeLatest(UserActions.GET_CATEGORY_LIST, getCategoryListHandler);
     yield takeLatest(UserActions.SEND_OTP, resendOtpHandler);
     yield takeLatest(UserActions.VERIFY_EMAIL, verifyEmailHandler);
     yield takeLatest(UserActions.USER_LOGIN, userLoginHandler);

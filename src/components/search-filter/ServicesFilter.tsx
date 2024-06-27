@@ -9,7 +9,7 @@ import { Calendar } from 'primereact/calendar';
 import HistoryFilter from './HistoryFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { getServicesFilter, resetServicesFilterData, setServicesMetaParams } from '@/redux/actions/userActionTypes';
-import { IServicesFilter } from '@/types/userInterface';
+import { IServicesFilter, ISubcategory } from '@/types/userInterface';
 import moment from 'moment';
 import { AppState } from '@/redux/types';
 import { setSearchHistory } from '@/redux/actions/userActionTypes';
@@ -42,9 +42,10 @@ const ServicesFilter = (props: Props) => {
   const op = useRef<OverlayPanel>(null);
 
   const searchHistory = useSelector((state: AppState) => state.userData.searchHistory)
+  const categoryList = useSelector((state: AppState) => state.userData.categoryList)
 
   const { searchQuery, setSearchQuery, setDateTime12h, datetime12h, selectedRatingOptionsItems, setSelectedRatingOptionsItems,
-    priceRangeHandler, setPriceRangeHandler, setSelecteSpecialization, selecteSpecialization , setSelectedCategory, selectedCategory} = props
+    priceRangeHandler, setPriceRangeHandler, setSelecteSpecialization, selecteSpecialization, setSelectedCategory, selectedCategory } = props
 
   const [priceRange, setPriceRange] = useState<number | [number, number]>([0, 1000]);
 
@@ -52,6 +53,7 @@ const ServicesFilter = (props: Props) => {
 
   const formattedDate = moment(datetime12h)?.format('YYYY-MM-DD HH:mm:ss');
 
+  console.log(searchHistory, "searchHistory")
 
   const handleSearchClick = (e: any) => {
     if (op.current) {
@@ -80,7 +82,7 @@ const ServicesFilter = (props: Props) => {
 
   const clearAllFilters = () => {
     setSearchQuery('');
-    setSelecteSpecialization([]);
+    setSelectedCategory([]);
     setSelectedRatingOptionsItems([]);
     setPriceRange([0, 1000]);
     setPriceRangeHandler([0, 1000]);
@@ -103,7 +105,7 @@ const ServicesFilter = (props: Props) => {
       availability: [],
       start_price: "0",
       end_price: "0",
-      specialization: [],
+      category: [],
     }
 
     dispatch(setSearchHistory(searchHistory));
@@ -128,7 +130,7 @@ const ServicesFilter = (props: Props) => {
       availability: formattedDate,
       start_price: Array.isArray(priceRangeHandler) ? priceRangeHandler[0] : priceRangeHandler,
       end_price: Array.isArray(priceRangeHandler) ? priceRangeHandler[1] : priceRangeHandler,
-      specialization: selecteSpecialization,
+      category: selectedCategory?.length ? selectedCategory.map((subcategory: ISubcategory) => subcategory.id) : [],
       page: 1,
     };
     dispatch(getServicesFilter(filterPayload));
@@ -150,7 +152,7 @@ const ServicesFilter = (props: Props) => {
     dispatch(setServicesMetaParams(metaParams))
     // Trigger filtering when any of the dependencies change
     filterServices();
-  }, [searchQuery, selectedRatingOptionsItems, datetime12h, priceRangeHandler, selecteSpecialization]);
+  }, [searchQuery, selectedRatingOptionsItems, datetime12h, priceRangeHandler, selectedCategory]);
 
   // Check if any filter is applied
   const isAnyFilterApplied = (
@@ -173,47 +175,13 @@ const ServicesFilter = (props: Props) => {
     setSearchQuery(searchValue);
     op.current?.hide(); // Hide OverlayPanel
   };
- 
-  const groupedCities = [
-      {
-          name: 'Germany',
-          // code: 'DE',
-          itemsTesting: [
-              { name: 'Berlin', value: 'Berlin' },
-              { name: 'Frankfurt', value: 'Frankfurt' },
-              { name: 'Hamburg', value: 'Hamburg' },
-              { name: 'Munich', value: 'Munich' }
-          ]
-      },
-      {
-          name: 'USA',
-          // code: 'US',
-          itemsTesting: [
-              { name: 'Chicago', value: 'Chicago' },
-              { name: 'Los Angeles', value: 'Los Angeles' },
-              { name: 'New York', value: 'New York' },
-              { name: 'San Francisco', value: 'San Francisco' }
-          ]
-      },
-      {
-          name: 'Japan',
-          // code: 'JP',
-          itemsTesting: [
-              { name: 'Kyoto', value: 'Kyoto' },
-              { name: 'Osaka', value: 'Osaka' },
-              { name: 'Tokyo', value: 'Tokyo' },
-              { name: 'Yokohama', value: 'Yokohama' }
-          ]
-      }
-  ];
-  console.log(selectedCategory, "selectedCategory");
-  
+
   const groupedItemTemplate = (option: any) => {
-      return (
-          <div className="flex align-items-center">
-               <div>{option.name}</div>
-          </div>
-      );
+    return (
+      <div className="flex align-items-center">
+        <div>{option.name}</div>
+      </div>
+    );
   };
 
 
@@ -267,9 +235,9 @@ const ServicesFilter = (props: Props) => {
             maxSelectedLabels={0}
             className="border w-full rounded-[8px]"
           /> */}
-          <MultiSelect value={selectedCategory} options={groupedCities} onChange={(e) => setSelectedCategory(e.value)} optionLabel="name"
-            optionGroupLabel="name" optionGroupChildren="itemsTesting" optionGroupTemplate={groupedItemTemplate}
-            placeholder="Select Cities" maxSelectedLabels={0} className="border w-full rounded-[8px]" />
+          <MultiSelect value={selectedCategory} options={categoryList} onChange={(e) => setSelectedCategory(e.value)} optionLabel="name"
+            optionGroupLabel="name" optionGroupChildren="subcategories" optionGroupTemplate={groupedItemTemplate}
+            placeholder="Select Category" maxSelectedLabels={0} className="border w-full rounded-[8px]" />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 py-2 md:pe-2 rating-dropdown">
           <MultiSelect
@@ -330,7 +298,12 @@ const ServicesFilter = (props: Props) => {
         <div className='border-t-[1px] flex items-center'>
           <div className='lg:w-11/12 md:w-9/12 w-9/12'>
             <div className='inline'>
-              <HistoryFilter historyData={searchHistory} setSearchQuery={setSearchQuery} setPriceRangeHandler={setPriceRangeHandler} setDateTime12h={setDateTime12h} specializationOptions={specializationOptions} setSelecteSpecialization={setSelecteSpecialization} setSelectedRatingOptionsItems={setSelectedRatingOptionsItems} />
+              <HistoryFilter
+                historyData={searchHistory}
+                setSearchQuery={setSearchQuery}
+                setPriceRangeHandler={setPriceRangeHandler}
+                setDateTime12h={setDateTime12h}
+                specializationOptions={categoryList} setSelecteSpecialization={setSelectedCategory} setSelectedRatingOptionsItems={setSelectedRatingOptionsItems} />
             </div>
           </div>
           <div className='lg:w-1/12 md:w-3/12 w-3/12 z-30 md:px-5'>

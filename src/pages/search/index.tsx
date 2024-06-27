@@ -9,9 +9,9 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DotLoader, PulseLoader } from 'react-spinners'
 import { useInView } from 'react-intersection-observer'
-import { IServicesFilter } from '@/types/userInterface'
+import { IServicesFilter, ISubcategory } from '@/types/userInterface'
 import moment from 'moment'
-import { getServicesFilter, resetServicesFilterData, setServicesMetaParams } from '@/redux/actions/userActionTypes'
+import { getCategoryList, getServicesFilter, resetServicesFilterData, setServicesMetaParams } from '@/redux/actions/userActionTypes'
 import { useRouter } from 'next/router'
 
 type Props = {}
@@ -41,14 +41,14 @@ const Search = (props: Props) => {
   const [pageRequested, setPageRequested] = useState(0);
   const [appointmentParams, setAppointmentParams] = useState(initialServiceParams);
   const [scrollValue, setScrollValue] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<ISubcategory[]>();
 
 
   const [selectedRatingOptionsItems, setSelectedRatingOptionsItems] = useState([]);
   const [priceRangeHandler, setPriceRangeHandler] = useState<number | [number, number]>([0, 1000]);
   const [selecteSpecialization, setSelecteSpecialization] = useState([]);
 
-
+console.log(selectedCategory, "selectedCategory")
   const [datetime12h, setDateTime12h] = useState<Date | null>(null);
 
   const formattedDate = moment(datetime12h)?.format('YYYY-MM-DD HH:mm:ss');
@@ -61,7 +61,7 @@ const Search = (props: Props) => {
         availability: formattedDate,
         start_price: 0,
         end_price: 1000,
-        specialization: [],
+        category: [],
         page: 1,
       };
       dispatch(getServicesFilter(filterPayload));
@@ -117,7 +117,7 @@ const Search = (props: Props) => {
         availability: formattedDate,
         start_price: Array.isArray(priceRangeHandler) ? priceRangeHandler[0] : priceRangeHandler,
         end_price: Array.isArray(priceRangeHandler) ? priceRangeHandler[1] : priceRangeHandler,
-        specialization: selecteSpecialization,
+        category: selectedCategory?.length ? selectedCategory.map((subcategory: ISubcategory) => subcategory.id) : [],
         page: appointmentParams?.page,
       };
 
@@ -128,7 +128,11 @@ const Search = (props: Props) => {
     }
   }, [servicesMetaParams?.meta_params?.hasMorePage, servicesMetaParams?.meta_params.nextPage, dispatch,
     pageRequested, scrollValue, appointmentParams?.page]);
-  console.log(selecteSpecialization, "formattedDate")
+ 
+    useEffect(() => {
+     dispatch(getCategoryList())
+    }, [])
+    
 
   return (
     <>

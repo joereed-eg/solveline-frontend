@@ -16,11 +16,13 @@ type Props = {
 
 };
 
-const HistoryFilter = (props: Props) => {
 
+const HistoryFilter = (props: Props) => {
+console.log(props.historyData, "232323")
    return (
     <div className='flex overflow-x-auto'>
       <>
+ 
         {props?.historyData.name === null || props?.historyData.name === '' ?
           null
           :
@@ -59,18 +61,26 @@ const HistoryFilter = (props: Props) => {
       </>
 
       <>
-        {props?.historyData?.specialization === null || props?.historyData?.specialization.length == 0 ?
+     {console.log(props?.historyData?.category,'aldksfal check this')}
+        {props?.historyData?.category === null || props?.historyData?.category.length == 0 ?
           null
           :
           <div className='history_card bg-[#F8F8F8]  rounded-[8px] my-2 py-3 me-2 px-3'>
             <div className='flex items-center'>
-              <span className='text-[#666666] '>Specialization:</span>
+              <span className='text-[#666666] '>Category:</span>
               <span className='text-[#000000] ps-3 text-nowrap'>
-                {props?.specializationOptions
-                  ?.filter((option: { value: any; }) => props?.historyData?.specialization?.includes(option.value))
-                  ?.map((option: { label: any; }) => option.label)
-                  ?.join(', ')
-                }
+                {/* {props?.specializationOptions
+                  // ?.filter((option: { value: any; }) => props?.historyData?.category?.includes(option.value))
+                  // ?.map((option: { name: any; }) => option.name)
+                  // ?.join(', ')
+                  .flatMap(option => 
+                    option.subcategories
+                      .filter(subcategory => props?.historyData?.category?.includes(subcategory.id))
+                      .map(subcategory => subcategory.name)
+                  )
+                  .join(', ')
+                
+                } */}
               </span>
               <span className='text-[#000000] ps-2 cursor-pointer' onClick={() => props?.setSelecteSpecialization([])}>
                 <Image src={'./images/icons/close_icon.svg'} className='min-w-[12px]' width={12} height={12} alt='close icon' />

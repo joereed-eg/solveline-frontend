@@ -26,7 +26,7 @@
 //   const userProfile = useSelector((state: AppState) => state.userData.userProfile)
 
 
-//   const apiKey = "jkeah38xwfvs";
+//   const apiKey = "hcg9ukn84xfs";
 //   const client = StreamChat.getInstance(apiKey);
 
 //   const userLogoutHandler = async () => {
@@ -199,7 +199,7 @@ const Sidebar = (props: Props) => {
   const dispatch = useDispatch();
   const userProfile = useSelector((state: AppState) => state.userData.userProfile);
 
-  const apiKey = "jkeah38xwfvs";
+  const apiKey = "hcg9ukn84xfs";
   const client = StreamChat.getInstance(apiKey);
 
   const userLogoutHandler = async () => {

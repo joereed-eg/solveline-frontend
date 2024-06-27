@@ -23,7 +23,7 @@ const TopNavbar = (props: Props) => {
     const toggleSidebar = () => {
         setIsSidebarVisible(!isSidebarVisible);
     };
-    const apiKey = "jkeah38xwfvs";
+    const apiKey = "hcg9ukn84xfs";
     const client = StreamChat.getInstance(apiKey);
 
     const userLogoutHandler = async () => {

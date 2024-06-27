@@ -14,6 +14,9 @@ export const userGoogleLoginApi = async (data: IUserLogin) => {
 export const getCountryListApi = async () => {
     return await api.get(`country-list`);
 };
+export const getCategoryListApi = async () => {
+    return await api.get(`category-list`);
+};
 export const resendOtpApi = async (data: IResendOtp) => {
     return await api.post(`auth/resend-OTP`, data);
 };
@@ -32,7 +35,7 @@ export const forgotPasswordStageThreeApi = async (data: IForgotPassword) => {
 
 export const getSearchServicesFilteApi = async (data: IServicesFilter) => {
     const availabilityCheck = data?.availability === "Invalid date" ? "" : data?.availability;
-    return await api.get(`services?page=${data?.page}&name=${data?.name}&specialization=${data?.specialization}&ratings=${data?.ratings}&availability=${availabilityCheck}&start_price=${data?.start_price}&end_price=${data?.end_price}`);
+    return await api.get(`services?page=${data?.page}&name=${data?.name}&category=${data?.category}&ratings=${data?.ratings}&availability=${availabilityCheck}&start_price=${data?.start_price}&end_price=${data?.end_price}`);
 };
 export const userProfileApi = async (data: IUserProfile) => {
     let profilePayload = {
