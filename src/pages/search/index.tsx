@@ -48,7 +48,7 @@ const Search = (props: Props) => {
   const [priceRangeHandler, setPriceRangeHandler] = useState<number | [number, number]>([0, 1000]);
   const [selecteSpecialization, setSelecteSpecialization] = useState([]);
 
-console.log(selectedCategory, "selectedCategory")
+  console.log(selectedCategory, "selectedCategory")
   const [datetime12h, setDateTime12h] = useState<Date | null>(null);
 
   const formattedDate = moment(datetime12h)?.format('YYYY-MM-DD HH:mm:ss');
@@ -128,11 +128,11 @@ console.log(selectedCategory, "selectedCategory")
     }
   }, [servicesMetaParams?.meta_params?.hasMorePage, servicesMetaParams?.meta_params.nextPage, dispatch,
     pageRequested, scrollValue, appointmentParams?.page]);
- 
-    useEffect(() => {
-     dispatch(getCategoryList())
-    }, [])
-    
+
+  useEffect(() => {
+    dispatch(getCategoryList())
+  }, [])
+
 
   return (
     <>
@@ -160,7 +160,7 @@ console.log(selectedCategory, "selectedCategory")
 
         <div className='md:px-4 px-3 pt-3 border-t-[1px]'>
           <h1 className='section_title text-black py-3 ps-2'>
-            {(searchQuery.length > 0 || selectedRatingOptionsItems.length > 0 || formattedDate !== "Invalid date" || selecteSpecialization.length > 0 || (Array.isArray(priceRangeHandler) && (priceRangeHandler[0] > 0 || priceRangeHandler[1] < 1000))) ?
+            {(searchQuery.length > 0 || selectedRatingOptionsItems.length > 0 || formattedDate !== "Invalid date" || (selectedCategory ?? []).length > 0 || (Array.isArray(priceRangeHandler) && (priceRangeHandler[0] > 0 || priceRangeHandler[1] < 1000))) ?
               <>
                 {!isLoading &&
                   <>
