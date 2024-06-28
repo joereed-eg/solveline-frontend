@@ -1,9 +1,11 @@
+import { AppState } from '@/redux/types';
 import { ISetSearchHistory } from '@/types/providerServicesInterface';
 import moment from 'moment';
 import Image from 'next/image';
 import React from 'react';
 
 import { FaStar, FaTimes } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 type Props = {
   historyData: any;
@@ -18,11 +20,13 @@ type Props = {
 
 
 const HistoryFilter = (props: Props) => {
-console.log(props.historyData, "232323")
-   return (
+  const categoryList = useSelector((state: AppState) => state.userData.categoryList)
+
+  console.log(props.historyData, "232323")
+  return (
     <div className='flex overflow-x-auto'>
       <>
- 
+
         {props?.historyData.name === null || props?.historyData.name === '' ?
           null
           :
@@ -61,27 +65,30 @@ console.log(props.historyData, "232323")
       </>
 
       <>
-     {console.log(props?.historyData?.category,'aldksfal check this')}
+        {console.log(categoryList, categoryList?.map(d => (d.subcategories)).flat(), props?.historyData?.category,'props?.historyData?.category')}
         {props?.historyData?.category === null || props?.historyData?.category.length == 0 ?
           null
           :
           <div className='history_card bg-[#F8F8F8]  rounded-[8px] my-2 py-3 me-2 px-3'>
             <div className='flex items-center'>
-              <span className='text-[#666666] '>Category:</span>
+              <span className='text-[#666666]'>Category:</span>
               <span className='text-[#000000] ps-3 text-nowrap'>
-                {/* {props?.specializationOptions
-                  // ?.filter((option: { value: any; }) => props?.historyData?.category?.includes(option.value))
-                  // ?.map((option: { name: any; }) => option.name)
-                  // ?.join(', ')
-                  .flatMap(option => 
-                    option.subcategories
-                      .filter(subcategory => props?.historyData?.category?.includes(subcategory.id))
-                      .map(subcategory => subcategory.name)
-                  )
-                  .join(', ')
-                
-                } */}
+                <span className='text-[#000000] ps-3 text-nowrap'>
+                  {
+                    categoryList
+                    ?.map(d => d.subcategories)
+                    .flat()
+                    ?.filter(option => (props?.historyData?.category || '')?.split(',').some((d: any)=> Number(d) === option.id))
+                    ?.map(option => option.name)
+                    ?.join(', ')
+                  }
+
+
+                </span>
+
+
               </span>
+
               <span className='text-[#000000] ps-2 cursor-pointer' onClick={() => props?.setSelecteSpecialization([])}>
                 <Image src={'./images/icons/close_icon.svg'} className='min-w-[12px]' width={12} height={12} alt='close icon' />
               </span>

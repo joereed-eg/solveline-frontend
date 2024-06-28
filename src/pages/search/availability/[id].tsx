@@ -51,7 +51,7 @@ export default function CheckAvailability({ availabilityDataList, providerProfil
                         </div>
                         <div className='title pt-3'>
                             <h2 className='text-[#000000] text-[26px] pb-1 font-medium text-truncate-1 max-w-[250px]'>{providerProfileDetails?.name}</h2>
-                            <p className='text-[#666666] text-[16px] pb-1 font-medium'>{providerProfileDetails?.specialization}</p>
+                            <p className='text-[#666666] text-[16px] pb-1 font-medium'>{providerProfileDetails?.category}</p>
                             <p className='flex  text-[#666666] font-medium text-[14px]'>
                                 <div className='pe-1 w-[20px] pt-1'>
                                     <Image src={'/images/icons/location_icon.svg'} width={13} height={15} className='min-w-[13px] min-h-[15px]' alt='location icon' />

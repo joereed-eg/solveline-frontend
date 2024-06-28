@@ -47,6 +47,7 @@ export interface IProviderServiceDetails {
   profile_image: string | null;
   youtube_link: string;
   about_us: string;
+  category: string;
   image: string;
   price_typea: string | null;
   rating: IRatings;
