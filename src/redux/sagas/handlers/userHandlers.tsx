@@ -719,5 +719,6 @@ export default function* userSaga() {
     yield takeLatest(UserActions.GET_PAYMENT_HISTORY, getPaymentHistoryHandler);
     yield takeLatest(UserActions.DOWNLOAD_INVOICE, invoiceDownloadHandler);
     yield takeLatest(UserActions.USER_LOGOUT, userLogoutdHandler);
+    yield takeLatest(UserActions.GET_CONSUMER_WALLET_HISTORY, walletHistorydHandler);
 
 }
