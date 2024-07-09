@@ -25,7 +25,7 @@ const PersonalInformation = (props: Props) => {
                 <div className="relative w-full w-custom-536 md:w-1/2 p-8 ">
                     <div className='flex justify-between items-center'>
                         <Link href={"/"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={50} height={50} />
+                            <Image src={"/images/logo.png"} alt="login img" width={115} height={50} />
                         </Link>
 
                     </div>
