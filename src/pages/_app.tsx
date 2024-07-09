@@ -15,7 +15,7 @@ import AuthGuard from '@/utils/AuthGuard';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GoogleOAuthProvider clientId="1039853795806-kr4hn337o2h86j55jgkchmr2k7m6mfcp.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="1004921241324-pgg16cl9ol4etpbhcssdt6mhd59925si.apps.googleusercontent.com">
         <Provider store={store.reduxStore}>
           <PersistGate loading={null} persistor={store.persistor}>
             <AuthGuard>
