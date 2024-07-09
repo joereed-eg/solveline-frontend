@@ -28,7 +28,7 @@ const WelcomePage = (props: Props) => {
   const appointmentListLoader = useSelector((state: AppState) => state.appointmentData.appointmentListLoader)
 
   const itemsToShow = isAuth ? 4 : 20;
-  const services = props?.servicesList && props?.servicesList?.slice(0, itemsToShow);
+  // const services = props?.servicesList && props?.servicesList?.slice(0, itemsToShow);
   useEffect(() => {
     if (router.isReady) {
       let reqObj: IAppointmentData = {
@@ -104,8 +104,8 @@ const WelcomePage = (props: Props) => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 pt-5 pb-5'>
           <>
-            {services?.length > 0 &&
-              services?.map((value, index) => (
+          {props?.servicesList?.length > 0 && props?.servicesList?.slice(0, isAuth ? 4 : 20)?.map((value, index) => (
+
                 <div key={index}>
                   <RecommendedCoaches data={value} />
                 </div>
