@@ -38,7 +38,7 @@ const initialState: IUser = {
     end_price: "",
     name: "",
     ratings: null,
-    specialization: null,
+    category: null,
     start_price: "",
   },
   createChannelLoading: false,
