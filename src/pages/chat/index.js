@@ -37,7 +37,7 @@ const UserChat = () => {
   const userData = useSelector((state) => state.userData?.userProfile);
 
   const userUUId = `${userData?.uuid}`;
-  const apiKey = "hcg9ukn84xfs";
+  const apiKey = "6x4xzmut8ma6";
   
   const userToken = userData?.chat_token;
 
