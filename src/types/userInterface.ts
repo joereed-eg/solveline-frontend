@@ -37,7 +37,7 @@ export enum Roles {
   COMPANY = "company",
 }
 export enum ChatApiKey {
-  KEY= "6x4xzmut8ma6",
+  KEY= "hcg9ukn84xfs",
 }
 
 export interface IUserSignup {
