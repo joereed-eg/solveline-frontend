@@ -637,7 +637,7 @@ function* invoiceDownloadHandler(action: UserActionTypes) {
                 throw new Error('Failed to open the invoice in a new tab.');
             }
         } else {
-            toast.error(data?.message, {
+            toast.error(data?.errors?.message, {
                 position: toast.POSITION.TOP_RIGHT,
             });
         }

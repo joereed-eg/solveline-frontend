@@ -9,6 +9,7 @@ import { CustomMessageSimple } from "../../components/chat-list/CustomMessageSim
 import { IoIosArrowRoundBack } from "react-icons/io";
 import TopNavbar from "../../components/top-navbar/TopNavbar";
 import { getProfileData } from "../../redux/actions/userActionTypes";
+import { ChatApiKey } from '@/types/userInterface';
 
 import {
   Chat,
@@ -37,7 +38,7 @@ const UserChat = () => {
   const userData = useSelector((state) => state.userData?.userProfile);
 
   const userUUId = `${userData?.uuid}`;
-  const apiKey = "6x4xzmut8ma6";
+  const apiKey = ChatApiKey.KEY;
   
   const userToken = userData?.chat_token;
 

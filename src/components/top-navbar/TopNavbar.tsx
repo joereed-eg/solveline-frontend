@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Layout.module.css';
 import { AppState } from '@/redux/types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,11 +9,21 @@ import { BiLogOut } from 'react-icons/bi';
 import { IoCloseSharp } from 'react-icons/io5';
 import { RiMenu5Line } from 'react-icons/ri';
 import { logoutUser, userLogout } from '@/redux/actions/userActionTypes';
-import { StreamChat } from 'stream-chat';
-import { Roles } from '@/types/userInterface';
+import { StreamChat, Channel } from 'stream-chat';
+import { ChatApiKey, Roles } from '@/types/userInterface';
 import { commonNavItems, companyNavItems, consumerNavItems, parentUserNavItem, profileNavItem } from "@/components/navItems/navItems";
 
 type Props = {}
+
+interface UserData {
+    uuid: string;
+    chat_token: string;
+  }
+  
+  // Define the type for the channel
+  type ChannelWithUnreadCount = Channel & {
+    countUnread: () => number;
+  };
 
 const TopNavbar = (props: Props) => {
     const router = useRouter()
@@ -23,7 +33,7 @@ const TopNavbar = (props: Props) => {
     const toggleSidebar = () => {
         setIsSidebarVisible(!isSidebarVisible);
     };
-    const apiKey = "6x4xzmut8ma6";
+    const apiKey = ChatApiKey.KEY;
     const client = StreamChat.getInstance(apiKey);
 
     const userLogoutHandler = async () => {
@@ -34,6 +44,68 @@ const TopNavbar = (props: Props) => {
             client.disconnectUser();
         }, 1000);
     }
+
+
+  const userData = useSelector((state: AppState) => state.userData?.userProfile) as UserData | undefined;
+
+  const [unreadCount, setUnreadCount] = useState<number>(0);
+
+  const updateUnreadMessageCount = (channels: ChannelWithUnreadCount[]) => {
+    let count = 0;
+
+    channels.forEach(channel => {
+      if (channel.countUnread() > 0) {
+        count++;
+      }
+    });
+
+    setUnreadCount(count);
+  };
+
+  const userUUId = userData?.uuid;
+  const userToken = userData?.chat_token;
+
+  const getUnreadChannelCount = async () => {
+    const chatClient = StreamChat.getInstance(apiKey);
+
+    try {
+      await chatClient.setUser(
+        { id: userUUId ? userUUId : "" },
+        userToken
+      );
+
+      const channels = await chatClient.queryChannels(
+        { members: { $in: [userUUId ? userUUId : ""] } },
+        { last_message_at: -1 }
+      ) as ChannelWithUnreadCount[];
+
+      updateUnreadMessageCount(channels);
+
+      chatClient.on('message.new', async () => {
+        const updatedChannels = await chatClient.queryChannels(
+          { members: { $in: [userUUId ? userUUId : ""] } },
+          { last_message_at: -1 }
+        ) as ChannelWithUnreadCount[];
+        updateUnreadMessageCount(updatedChannels);
+      });
+
+      chatClient.on('message.read', async () => {
+        const updatedChannels = await chatClient.queryChannels(
+          { members: { $in: [userUUId ? userUUId : ""] } },
+          { last_message_at: -1 }
+        ) as ChannelWithUnreadCount[];
+        updateUnreadMessageCount(updatedChannels);
+      });
+    } catch (error) {
+      console.error("Error querying channels:", error);
+    }
+  };
+
+  useEffect(() => {
+    getUnreadChannelCount();
+  }, []);
+
+
     return (
         <div>
             <nav className={`${styles.rightTopNavbar} ${userProfile?.isAuth ? styles.rightTopNavbar_desktop : styles.main_content_hideSideNave} sideNavbarResponsiveOverlay flex`}>
@@ -116,15 +188,27 @@ const TopNavbar = (props: Props) => {
                                 ))}
                                 {userProfile?.role === Roles.CONSUMER && consumerNavItems.map((item, index) => (
                                     <li key={index} className={`nav_item ${router?.asPath === item.href && 'active'}`}>
-                                        <Link href={item.href} className="flex items-center">
-                                            <span className="pr-2">
-                                                {typeof item.icon === 'string' ? (
-                                                    <Image src={item.icon} width={22} height={22} alt={item.label} />
-                                                ) : (
-                                                    item.icon
-                                                )}
+                                       <Link href={item.href} className="flex justify-between">
+                                            <span className="flex items-center">
+                                                <span className="pr-2">
+                                                    {typeof item.icon === 'string' ? (
+                                                        <Image src={item.icon} width={22} height={22} alt={item.label} />
+                                                    ) : (
+                                                        item.icon
+                                                    )}
+                                                </span>
+                                                {item.label}
                                             </span>
-                                            {item.label}
+                                            {index === 2 &&
+                                                <>
+                                                    {unreadCount > 0 && (
+                                                        <span className="bg-[#cb333b] w-[30px] h-[20px] text-[12px] font-[500] text-white text-center rounded-[30px] flex justify-center mt-1">
+                                                            {unreadCount}
+                                                        </span>
+                                                    )}
+                                                </>
+                                            }
+
                                         </Link>
                                     </li>
                                 ))}

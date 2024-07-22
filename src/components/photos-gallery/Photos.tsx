@@ -59,6 +59,9 @@ const Photos = (props: Props) => {
             <div onClick={() => { featureModalHandler(value) }}>
               <Image src={value.image} className='w-full object-cover min-h-[179px] rounded-[8px] max-h-[179px]' width={179} height={179} alt='userImg' />
             </div>
+            <div>
+              <h4 className='text-[16px] pt-2   text-truncate-1 max-h-[35px] font-medium '>{value?.title}</h4>
+            </div>
           </div>
         ))}
       </Slider>
@@ -73,14 +76,14 @@ const Photos = (props: Props) => {
           <div className='py-2'>
             <div className='block'>
               <div className='video_card px-4'>
-                {featureInfo?.youtube_link &&   <ReactPlayer
+                {featureInfo?.youtube_link && <ReactPlayer
                   url={featureInfo?.youtube_link}
                   width="100%"
                   height="200px"
                   controls={true}
                   className="rounded-lg w-100"
                 />}
-              
+
               </div>
             </div>
           </div>
