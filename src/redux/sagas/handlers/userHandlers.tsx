@@ -637,7 +637,7 @@ function* invoiceDownloadHandler(action: UserActionTypes) {
                 throw new Error('Failed to open the invoice in a new tab.');
             }
         } else {
-            toast.error(data?.message, {
+            toast.error(data?.errors?.message, {
                 position: toast.POSITION.TOP_RIGHT,
             });
         }
@@ -719,5 +719,6 @@ export default function* userSaga() {
     yield takeLatest(UserActions.GET_PAYMENT_HISTORY, getPaymentHistoryHandler);
     yield takeLatest(UserActions.DOWNLOAD_INVOICE, invoiceDownloadHandler);
     yield takeLatest(UserActions.USER_LOGOUT, userLogoutdHandler);
+    yield takeLatest(UserActions.GET_CONSUMER_WALLET_HISTORY, walletHistorydHandler);
 
 }

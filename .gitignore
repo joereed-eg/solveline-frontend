@@ -23,9 +23,18 @@ dist/
 # Package files
 *.jar
 
+# next.js
+/.next/
+/out/
+
 # Maven
 target/
 dist/
+
+# next.js
+/.next/
+/out/
+
 
 # JetBrains IDE
 .idea/

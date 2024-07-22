@@ -1,11 +1,11 @@
- import Image from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import LoginBanner from '../components/login-right-banner/LoginBanner'
 import { AppState } from '@/redux/types'
 import { useSelector } from 'react-redux'
- import 'react-datepicker/dist/react-datepicker.css'
- import 'primereact/resources/themes/saga-blue/theme.css'; // Importing PrimeReact theme CSS
+import 'react-datepicker/dist/react-datepicker.css'
+import 'primereact/resources/themes/saga-blue/theme.css'; // Importing PrimeReact theme CSS
 import 'primereact/resources/primereact.min.css'; // Importing PrimeReact component CSS
 import 'primeicons/primeicons.css'; // Importing PrimeIcons
 import PersonalInformationForm from '@/components/forms/PersonalInformationForm'
@@ -25,7 +25,7 @@ const PersonalInformation = (props: Props) => {
                 <div className="relative w-full w-custom-536 md:w-1/2 p-8 ">
                     <div className='flex justify-between items-center'>
                         <Link href={"/"} className=''>
-                            <Image src={"/images/logo.png"} alt="login img" width={115} height={50} />
+                            <Image src={"/images/logo.png"} alt="login img"  width={120} height={50} />
                         </Link>
 
                     </div>
