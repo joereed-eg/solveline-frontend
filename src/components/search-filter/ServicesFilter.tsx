@@ -63,9 +63,8 @@ const ServicesFilter = (props: Props) => {
 
 
   const specializationOptions = [
-    { label: "Coach", value: "3" },
-    { label: "Financial Advisor", value: "4" },
-    { label: "Pastoral Care", value: "2" },
+    { label: "Professional Coach", value: "3" },
+    { label: "Personal Coach", value: "2" },
     { label: "Spiritual Director", value: "1" },
   ]
     ;

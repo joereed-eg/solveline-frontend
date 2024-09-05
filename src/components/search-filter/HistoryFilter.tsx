@@ -22,7 +22,6 @@ type Props = {
 const HistoryFilter = (props: Props) => {
   const categoryList = useSelector((state: AppState) => state.userData.categoryList)
 
-  console.log(props.historyData, "232323")
   return (
     <div className='flex overflow-x-auto'>
       <>

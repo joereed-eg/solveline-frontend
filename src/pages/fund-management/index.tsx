@@ -159,10 +159,10 @@ const FundManagement = (props: Props) => {
       setConfirmDialogModal(true);
     } else {
       // Add logic here to handle the fund allocation when allowed
-      console.log('Funds can be allocated. Proceed with allocation logic here.');
+      ('Funds can be allocated. Proceed with allocation logic here.');
     }
   };
-  console.log(addFundLoader, "addFundLoaderwe2342")
+  (addFundLoader, "addFundLoaderwe2342")
 
   return (
     <Layout>
