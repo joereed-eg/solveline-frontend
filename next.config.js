@@ -11,6 +11,7 @@ const nextConfig = {
       'example.com',
       'expoappbe.scaleupally.io',
       'manage.exponentgroup.org',
+      'imagedelivery.net',
       'dev.manage.solveline.scaleupdevops.in',
       'staging.manage.solveline.pro',
     ],
