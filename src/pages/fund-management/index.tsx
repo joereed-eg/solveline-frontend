@@ -162,8 +162,7 @@ const FundManagement = (props: Props) => {
       ('Funds can be allocated. Proceed with allocation logic here.');
     }
   };
-  (addFundLoader, "addFundLoaderwe2342")
-
+ 
   return (
     <Layout>
       <TopNavbar />
