@@ -61,16 +61,6 @@ const ServicesFilter = (props: Props) => {
     }
   };
 
-
-  const specializationOptions = [
-    { label: "Professional Coach", value: "3" },
-    // { label: "Financial Advisor", value: "4" },
-    { label: "Personal Coach", value: "2" },
-    { label: "Spiritual Director", value: "1" },
-  ]
-    ;
-
-
   const ratingOptions = [
     { value: "5", label: <><FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#FFA500' /></> },
     { value: "4", label: <><FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#FFA500' /> <FaStar color='#E1E1E1' /></> },
@@ -224,17 +214,6 @@ const ServicesFilter = (props: Props) => {
 
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 py-2 md:pe-2">
-          {/* <MultiSelect
-            value={selecteSpecialization}
-            onChange={(e) => setSelecteSpecialization(e.value)}
-            options={specializationOptions}
-            optionLabel=""
-            filter
-            placeholder="Specialization"
-            showSelectAll={false}
-            maxSelectedLabels={0}
-            className="border w-full rounded-[8px]"
-          /> */}
           <MultiSelect value={selectedCategory} options={categoryList} onChange={(e) => setSelectedCategory(e.value)} optionLabel="name"
             optionGroupLabel="name" optionGroupChildren="subcategories" optionGroupTemplate={groupedItemTemplate}
             placeholder="Select Category" maxSelectedLabels={0} className="border w-full rounded-[8px]" />
