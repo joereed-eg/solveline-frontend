@@ -12,6 +12,7 @@ const nextConfig = {
       'expoappbe.scaleupally.io',
       'manage.exponentgroup.org',
       'imagedelivery.net',
+      'manage.solveline.pro',
       'dev.manage.solveline.scaleupdevops.in',
       'staging.manage.solveline.pro',
     ],
