@@ -14,7 +14,10 @@ const RecommendedCoaches = (props: Props) => {
                 <Link href={`search/profile/${props?.data?.provider_id}`}>
                     {props?.data?.images?.[0]?.file_link && (
                         <div className='card-img '>
-                            <Image src={props.data.images[0].file_link} alt={"service-image"} width={274} height={154} className='w-full max-h-[154px] min-h-[154px] object-cover' />
+                            <Image src={props.data.images[0].file_link} alt={"service-image"}
+                                width={274} height={200} className='w-full max-h-[200px] min-h-[200px] object-contain'
+
+                            />
                         </div>
                     )}
 
