@@ -12,6 +12,7 @@ type Props = {
     children?: ReactNode; // Define children prop
 }
 
+
 const CenterModal = (props: Props) => {
 
   const handleHide = () => {
