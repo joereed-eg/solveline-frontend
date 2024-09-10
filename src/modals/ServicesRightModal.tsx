@@ -61,7 +61,7 @@ const ServicesRightModal = (props: Props) => {
             setActiveTabe('premium');
         }
     }, [props.data]);
- 
+
     return (
         <div className='services_modal z-50 bg-white'>
             <Dialog header="Services" visible={props.visible} position={"top-right"} onHide={() => props.onClose()} draggable={false} className='bg-white bottom-0 service_modal_right'>
@@ -83,8 +83,10 @@ const ServicesRightModal = (props: Props) => {
                             <div className='relative'>
                                 <Slider {...settings}>
                                     {props?.data?.images.map((value, index) => (
-                                        <div key={index} className='max-h-[200px]'>
-                                            <Image src={`${value?.file_link}`} className='w-full max-h-[200px] min-h-[200px] object-cover rounded-top-img service_modal_images' width={240} height={200} alt='watch-img' />
+                                        <div key={index}>
+                                            <Image src={`${value?.file_link}`}
+                                                width={274} height={200} className='w-full max-h-[200px] min-h-[200px] object-contain rounded-top-img service_modal_images'
+                                                alt='watch-img' />
                                         </div>
                                     ))}
 

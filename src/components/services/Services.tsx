@@ -27,7 +27,7 @@ const Services = (props: Props) => {
     arrows: false,
     speed: 2500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 2000,
     centerMode: false,
@@ -62,9 +62,7 @@ const Services = (props: Props) => {
               <div className='cursor-pointer w-100'>
                 <Image
                   src={value?.images[0].file_link}
-                  className='rounded-lg min-h-[150px] max-h-[150px] object-cover w-100'
-                  width={240}
-                  height={150}
+                  width={274} height={154} className='w-full max-h-[154px] min-h-[154px] object-cover'
                   alt='watch-img'
                 />
                 <div>
