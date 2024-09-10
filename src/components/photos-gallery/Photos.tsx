@@ -57,7 +57,9 @@ const Photos = (props: Props) => {
         {props?.data?.map((value, index) => (
           <div className='cursor-pointer px-2' key={index}>
             <div onClick={() => { featureModalHandler(value) }}>
-              <Image src={value.image} className='w-full object-cover min-h-[179px] rounded-[8px] max-h-[179px]' width={179} height={179} alt='userImg' />
+              <Image src={value.image}
+                 width={274} height={154} className='w-full max-h-[154px] min-h-[154px] object-cover'
+                alt='userImg' />
             </div>
             <div>
               <h4 className='text-[16px] pt-2   text-truncate-1 max-h-[35px] font-medium '>{value?.title}</h4>
