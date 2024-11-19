@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
   token = localStorage.getItem("access_token");
 }
 
-// initialize axios
+
 export const api = axios.create({
   baseURL: `https://manage.solveline.pro/api/`,
    
