@@ -238,7 +238,7 @@ const SignUp = (props: Props) => {
                                             </button>
                                         </div>
                                         <div className='mt-5 text-[14px] font-[400] text-center'>
-                                            <span className='text-[#282C32] '> Already have an account?</span> <Link href={"/login"} className='text-[#000000]'>Login</Link>
+                                            <span className='text-[#282C32] '> AAlready have an account?</span> <Link href={"/login"} className='text-[#000000]'>Login</Link>
                                         </div>
                                     </Form>
                                 )}
