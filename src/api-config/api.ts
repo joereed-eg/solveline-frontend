@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 
 
 export const api = axios.create({
-  baseURL: `https://manage.solveline.pro/api/`,
+  baseURL: `https://backend-staging.solveline.pro/api/`,
    
   headers: {
     common: {
